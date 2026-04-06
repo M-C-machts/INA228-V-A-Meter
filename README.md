@@ -1,46 +1,50 @@
 # INA228-V-A-Meter
 
-KiCad 9 hardware project for a compact voltage + current meter/logger using:
-- **TI INA228** (high-accuracy current/voltage/power monitor)
-- **Seeed XIAO ESP32-C3** (MCU module)
+A KiCad 9 hardware project for a compact voltage and current meter/logger using:
+- **TI INA228** - high-accuracy current/voltage/power monitor
+- **Seeed XIAO ESP32-C3** - MCU module
 
-The board is **powered from a LiFePO₄ battery** and is intended to be **charged via the XIAO’s USB-C port**.
+The board is **powered from a LiFePO₄ battery** and charged via the **XIAO's USB-C port**.
 
-> Status: work in progress. Expect changes.
+> **Status:** Work in progress. Some changes may occur.
 
 ---
 
-## Features (planned / target)
-- Simultaneous **bus voltage** + **current** measurement via INA228
+## Features
+- Simultaneous **bus voltage** and **current** measurement via INA228
 - ESP32-C3 firmware
-- Battery powered (LiFePO₄), portable
-- 1.3" OLED Display
+- LiFePO₄ battery powered - portable
+- 1.3" OLED display
 
 ---
 
-## Hardware overview
-### Main components
-- **INA228**: measures shunt voltage + bus voltage, supports current/power calculations internally
+## Hardware Overview
+### Main Components
+- **INA228**: measures shunt and bus voltage; performs current/power calculations internally
 - **XIAO ESP32-C3**: reads INA228 over **I²C** and outputs/logs data
+- LiFePO₄ charge/discharge power management is handled via a daughter board: [XIAO-LiFePO4-Power-Module](https://github.com/M-C-machts/XIAO-LiFePO4-Power-Module)
+- Gerber files for PCB fabrication are included
+- Case files for 3D printing are included
 
 ### Power
-- **LiFePO₄ cell** powers the board.
-- Charging is intended **through the XIAO USB-C** via a daughter board (the XIAO’s onboard charger/power path is NOT used).
+- The board is powered by a **LiFePO₄ cell**.
+- Charging is handled **through the XIAO USB-C port** via the daughter board. The XIAO's onboard charger/power path is not used.
+- To use a LiPo battery instead, omit the XIAO-LiFePO4-Power-Module and connect a *protected* LiPo battery directly to the XIAO battery solder pads.
 
 ---
 
-## Firmware (planned)
-- Read INA228 registers via I²C
-- Convert to:
+## Firmware
+- Reads INA228 registers via I²C
+- Calculates and displays:
   - Voltage (V)
   - Current (A)
-  - Power (W) (optional)
-- Output over USB serial and 1,3" OLED Display
+  - Power (W) *(optional)*
+- Outputs data over USB serial and 1.3" OLED display
 
 
 
-## Calibration / accuracy notes
-INA228 accuracy depends heavily on:
-- Shunt resistor value + tolerance + temperature coefficient
+## Calibration / Accuracy Notes
+INA228 measurement accuracy depends heavily on:
+- Shunt resistor value, tolerance, and temperature coefficient
 - Correct INA228 configuration (averaging, conversion times, calibration register)
 
