@@ -14,6 +14,7 @@ hardware/**/*-backups/
 
 # Gerber / fabrication outputs
 hardware/gerbers/
+hardware/gerber/
 hardware/fab/
 
 # -- VS Code -----------------------------------------------------------------

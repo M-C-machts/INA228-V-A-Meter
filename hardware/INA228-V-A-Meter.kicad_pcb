@@ -74,7 +74,7 @@
 			(mirror no)
 			(drillshape 0)
 			(scaleselection 1)
-			(outputdirectory "gerbers")
+			(outputdirectory "gerber")
 		)
 	)
 	(net 0 "")
@@ -4975,6 +4975,18 @@
 				(bold yes)
 			)
 			(justify left bottom)
+		)
+	)
+	(gr_text "LiPo Battery connection\n(if LiFePO4 Module not used)"
+		(at 80.8 45.2 0)
+		(layer "B.SilkS")
+		(uuid "8db2148a-b9b1-469b-96c5-bd3ef10e2d97")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify left bottom mirror)
 		)
 	)
 	(segment
