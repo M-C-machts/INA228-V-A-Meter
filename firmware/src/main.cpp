@@ -55,8 +55,7 @@ void setup() {
     }
 
     // IMPORTANT: set the *real* shunt value you are using.
-    // Adafruit INA228 breakout uses 0.015 ohm shunt.
-    ina228.setShunt(0.015f, 2.0f);
+    ina228.setShunt(0.020f, 2.0f);
 
     // "Accurate-looking": internal averaging + longer conversion times = less noise, slower updates
     ina228.setAveragingCount(INA228_COUNT_256);
